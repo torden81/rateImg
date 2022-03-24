@@ -20,12 +20,14 @@ usethis::use_package( "thinkr" )
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "singleImg" ) # Name of the module
+golem::add_module( name = "acceptAndSave" ) # Name of the module
+
 #golem::add_module( name = "name_of_module2" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 #golem::add_fct( "helpers" ) 
-#golem::add_utils( "helpers" )
+golem::add_utils( "helpers" )
 
 ## External resources
 ## Creates .js and .css files at inst/app/www

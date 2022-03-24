@@ -14,15 +14,17 @@ app_ui <- function(request) {
       h1("evalImg"),
       fluidRow({
         column(
-          "Image",
-          uiOutput("upperPanel"),
+          # "Image",
+          # uiOutput("upperPanel"),
+          #mod_singleImg_ui("singleImg_1"),
+          uiOutput("allImages"),
           width=8
         )
       }),
       fluidRow({
         column(
-          uiOutput("lowerPanel"),
-          width=8
+          mod_acceptAndSave_ui("acceptAndSave_1"),
+          width=8,
         )
       }),
       fluidRow({
