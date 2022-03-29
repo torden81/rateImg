@@ -26,15 +26,15 @@ mod_acceptAndSave_server <- function(id, rating_rv, triggerNewImages_rv){
     observeEvent(
       input[["acceptAndSaveButton"]],
       {
+        req(rating_rv)
+        #browser()
         ratings <- do.call(rbind, rvtl(rating_rv))
         date_ <- get_time_human()
         outdata <- data.frame(date=date_, ratings)
         
         id <- paste0(digest(outdata, algo="md5"),"_",date_)
-        #id <- paste0(sessionToken,"_",date_)
         
         saveRDS(outdata, file = paste0(id,".rds"))
-        #browser()
         triggerNewImages_rv(Sys.time())
       })
     

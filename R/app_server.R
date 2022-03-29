@@ -12,7 +12,25 @@ app_server <- function( input, output, session ) {
   
   sessionToken <- reactive(session$token)
   
-  randomImages <- reactiveVal(imageFiles[sample(length(imageFiles),5)])
+  #rv <- lapply(1:5, x <- reactiveVal(0))
+  #randomImages <- reactiveValues()#(imageFiles[sample(length(imageFiles),5)])
+  randomImages <- reactiveVal()
+  
+  observeEvent(triggerNewImages_rv(),{
+    print("Generate new images")
+    #browser()
+    
+    imgSample <- sample(imageFiles,5)
+    
+    # lapply(seq_along(imgSample), function(i){
+    #   #randomImages[[as.character(i)]] <- reactiveVal(imgSample[i])
+    #   
+    # })
+    randomImages(imgSample)
+    
+  }, ignoreInit = FALSE)
+  
+  
   triggerNewImages_rv <- reactiveVal(0)
   
   image_i <- reactiveVal(1)
@@ -21,11 +39,12 @@ app_server <- function( input, output, session ) {
   rating_rv <- reactiveValues()
 
   # Generate images and ratings buttons module ####
-  lapply(1:5, function(i){
-    mod_singleImg_server(paste0("singleImg_",i), randomImages()[i], rating_rv, triggerNewImages_rv)
-  })
-  #mod_singleImg_server("singleImg_1", randomImages()[1])
-  
+
+    lapply(1:5, function(i){
+      mod_singleImg_server(paste0("singleImg_",i), randomImages, rating_rv, triggerNewImages_rv)
+    })
+    #mod_singleImg_server("singleImg_1", randomImages()[1])
+
   
   output[["allImages"]] <- renderUI({
     do.call(tagList,
@@ -39,12 +58,7 @@ app_server <- function( input, output, session ) {
   # Generate accept button and save module ####
   mod_acceptAndSave_server("acceptAndSave_1", rating_rv, triggerNewImages_rv)
   
-  observeEvent(triggerNewImages_rv(),{
-    print("Generate new images")
-    browser()
-    randomImages( imageFiles[sample(length(imageFiles),5)] )
-    
-  }, ignoreInit = TRUE)
+
   
   
   # output[["upperPanel"]] <- renderUI(
@@ -79,7 +93,6 @@ app_server <- function( input, output, session ) {
   
 
   output[["sessionID"]] <- renderText(sessionToken())
-  output[["sessionID_user"]] <- renderText(paste0(sessionToken(),"_",user_i()))
   
   
   

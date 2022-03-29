@@ -29,7 +29,6 @@ app_ui <- function(request) {
       }),
       fluidRow({
         column(textOutput("sessionID"),
-               textOutput("sessionID_user"),
         width=8)
       })
     )

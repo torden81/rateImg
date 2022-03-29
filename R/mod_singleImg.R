@@ -10,7 +10,8 @@
 mod_singleImg_ui <- function(id){
   ns <- NS(id)
   tagList(
- 
+    actionButton(ns("debug"), "DEBUG"),
+    
     imageOutput(ns("myImage"), height="auto"), 
     radioButtons(ns("rateButtons"), label="Rate the image", choices=1:5, inline=TRUE),
     tags$hr()
@@ -24,28 +25,32 @@ mod_singleImg_server <- function(id, imageFile, rating_rv, triggerNewImages_rv){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
  
+    observeEvent(input[["debug"]], browser())
     
-    idNo <- reactive({
-      sub(".*_([[:digit::]]+)$", "\\1",id)
-    })
     
+    idNo <- as.numeric(sub(".*_([[:digit::]]*)$", "\\1",id))
+    
+    
+    #imgFile <- imageFile[[as.character(idNo)]]
     
     observeEvent(input[["rateButtons"]],{
+      req(imageFile)
       #browser()
-      rating_rv[[paste0(idNo())]] <- data.frame(image=imageFile, rate=as.numeric(input[["rateButtons"]]))
-    })
+      rating_rv[[paste0(idNo)]] <- data.frame(image=imageFile()[idNo], rate=as.numeric(input[["rateButtons"]]))
+    }, ignoreInit = TRUE)
     
     #rating_rv[[paste0(idNo)]] <- c(image=imageFile, rate=NA)
     
-    observeEvent( triggerNewImages_rv,
+    observeEvent( triggerNewImages_rv(),
                   {
                     updateRadioButtons(session, "rateButtons", selected=1)
                   }, ignoreInit = TRUE)
     
 
     output[["myImage"]] <- renderImage({
-      print(imageFile)
-      outfile <- normalizePath(paste0(wwwPath,"/",imageFile))
+      req(imageFile)
+      print(imageFile()[idNo])
+      outfile <- normalizePath(paste0(wwwPath,"/",imageFile()[idNo]))
       list(src = outfile,
            alt = "This is alternate text")
     },
