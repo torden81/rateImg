@@ -27,7 +27,6 @@ mod_acceptAndSave_server <- function(id, rating_rv, triggerNewImages_rv){
       input[["acceptAndSaveButton"]],
       {
         req(rating_rv)
-        #browser()
         ratings <- do.call(rbind, rvtl(rating_rv))
         date_ <- get_time_human()
         outdata <- data.frame(date=date_, ratings)

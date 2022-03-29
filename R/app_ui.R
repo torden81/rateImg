@@ -10,13 +10,10 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
-      actionButton("debug", "DEBUG"),
+      #actionButton("debug", "DEBUG"),
       h1("evalImg"),
       fluidRow({
         column(
-          # "Image",
-          # uiOutput("upperPanel"),
-          #mod_singleImg_ui("singleImg_1"),
           uiOutput("allImages"),
           width=8
         )
