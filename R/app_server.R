@@ -14,6 +14,7 @@ app_server <- function( input, output, session ) {
   
   observeEvent(triggerNewImages_rv(),{
     print("Generate new images")
+    print(imageFiles)
     imgSample <- sample(imageFiles,5)
     randomImages(imgSample)
   }, ignoreInit = FALSE)
