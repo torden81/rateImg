@@ -1,5 +1,6 @@
 
 .Rhistory
+.RData
 .Rproj.user
 .Rproj.user/E8EA0039/cpp-definition-cache
 .Rproj.user/E8EA0039/pcs/files-pane.pper
@@ -45,3 +46,4 @@
 .Rproj.user/E8EA0039/sources/prop/33E385B5
 .Rproj.user/E8EA0039/sources/prop/1AD6E4C0
 inst/app/www/*.jpg
+*.rds
