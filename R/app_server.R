@@ -20,14 +20,10 @@ app_server <- function( input, output, session ) {
   
   
   triggerNewImages_rv <- reactiveVal(0)
-  
-  image_i <- reactiveVal(1)
-  user_i <- reactiveVal(1)
-
   rating_rv <- reactiveValues()
 
+  
   # Generate images and ratings buttons module ####
-
   lapply(1:5, function(i){
     mod_singleImg_server(paste0("singleImg_",i), randomImages, rating_rv, triggerNewImages_rv)
   })

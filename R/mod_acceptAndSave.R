@@ -31,7 +31,9 @@ mod_acceptAndSave_server <- function(id, rating_rv, triggerNewImages_rv){
         date_ <- get_time_human()
         outdata <- data.frame(date=date_, ratings)
         
-        id <- paste0(digest(outdata, algo="md5"),"_",date_)
+        id <- paste0(date_, "_", digest(outdata, algo="md5"))
+        
+        outdata <- data.frame(id=id, outdata)
         
         saveRDS(outdata, file = paste0(id,".rds"))
         triggerNewImages_rv(Sys.time())
