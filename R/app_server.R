@@ -41,7 +41,9 @@ app_server <- function( input, output, session ) {
   mod_acceptAndSave_server("acceptAndSave_1", rating_rv, triggerNewImages_rv)
   
   output[["sessionID"]] <- renderText(sessionToken())
-  
+  output[["xImgFiles"]] <- renderText({
+    paste0(wwwPath,"\\", imageFiles)
+  })
   
   
 }
