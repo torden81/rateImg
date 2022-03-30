@@ -1,4 +1,4 @@
-Package: evalImg
+Package: rateImg
 Title: Evaluate images
 Version: 0.0.0.9000
 Authors@R: person('Torben', 'Wittwer', email = 'torben_w@gmx.de', role = c('cre', 'aut'))

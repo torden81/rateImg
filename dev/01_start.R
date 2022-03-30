@@ -19,7 +19,7 @@
 ## to change the name in the app_sys() function in app_config.R /!\
 ## 
 golem::fill_desc(
-  pkg_name = "evalImg", # The Name of the package containing the App 
+  pkg_name = "rateImg", # The Name of the package containing the App 
   pkg_title = "Evaluate images", # The Title of the package containing the App 
   pkg_description = "This app is an app to evaluate images on a given scale.", # The Description of the package containing the App 
   author_first_name = "Torben", # Your First Name

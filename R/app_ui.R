@@ -11,7 +11,7 @@ app_ui <- function(request) {
     # Your application UI logic 
     fluidPage(
       #actionButton("debug", "DEBUG"),
-      h1("evalImg", id="title"),
+      h1("rateImg", id="title"),
       fluidRow({
         column(
           uiOutput("allImages"),
