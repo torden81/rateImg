@@ -12,6 +12,10 @@ app_server <- function( input, output, session ) {
   sessionToken <- reactive(session$token)
   randomImages <- reactiveVal()
   
+  wwwPath <- app_sys("app/www")
+  imageFiles <- list.files(path=wwwPath, pattern="\\.jpg$", full.names = TRUE)
+  
+  
   observeEvent(triggerNewImages_rv(),{
     print("Generate new images")
     print(imageFiles)
@@ -43,7 +47,8 @@ app_server <- function( input, output, session ) {
   
   output[["sessionID"]] <- renderText(sessionToken())
   output[["xImgFiles"]] <- renderText({
-    paste0(wwwPath,"\\", imageFiles)
+    #paste0(wwwPath,"\\", imageFiles)
+    imageFiles
   })
   
   

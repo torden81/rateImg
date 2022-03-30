@@ -33,7 +33,7 @@ mod_singleImg_server <- function(id, imageFile, rating_rv, triggerNewImages_rv){
     
     observeEvent(input[["rateButtons"]],{
       req(imageFile)
-      rating_rv[[paste0(idNo)]] <- data.frame(image=imageFile()[idNo], rate=as.numeric(input[["rateButtons"]]))
+      rating_rv[[paste0(idNo)]] <- data.frame(image=basename(imageFile()[idNo]), rate=as.numeric(input[["rateButtons"]]))
     }, ignoreInit = TRUE)
     
 
@@ -46,7 +46,7 @@ mod_singleImg_server <- function(id, imageFile, rating_rv, triggerNewImages_rv){
     output[["myImage"]] <- renderImage({
       req(imageFile)
       print(imageFile()[idNo])
-      outfile <- normalizePath(paste0(wwwPath,"/",imageFile()[idNo]))
+      outfile <- imageFile()[idNo]#normalizePath(paste0(wwwPath,"/",imageFile()[idNo]))
       list(src = outfile,
            alt = "This is alternate text")
     },
