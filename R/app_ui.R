@@ -27,7 +27,7 @@ app_ui <- function(request) {
       fluidRow({
         column(
           textOutput("sessionID"),
-          textOutput("xImgFiles"),
+          #textOutput("xImgFiles"),
         width=8)
       })
     )

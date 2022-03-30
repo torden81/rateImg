@@ -4,11 +4,11 @@
 #' @export
 #'
 #' @examples
-readEvalFiles <- function(){
+readEvalFiles <- function(path="."){
 
   evalFilePattern <- "^[[:digit:]]+-[[:digit:]]+_.*\\.rds$"
   
-  pathToRDSfiles <- "."#paste0(system.file(package = "evalImg"), "\\..")
+  pathToRDSfiles <- path#paste0(system.file(package = "evalImg"), "\\..")
   
   filesToLoad <- list.files(path = pathToRDSfiles,pattern=evalFilePattern)
   

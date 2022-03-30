@@ -14,8 +14,7 @@ app_server <- function( input, output, session ) {
   
   wwwPath <- app_sys("app/www")
   imageFiles <- list.files(path=wwwPath, pattern="\\.jpg$", full.names = TRUE)
-  
-  
+
   observeEvent(triggerNewImages_rv(),{
     print("Generate new images")
     print(imageFiles)
@@ -45,7 +44,11 @@ app_server <- function( input, output, session ) {
   # Generate accept button and save module ####
   mod_acceptAndSave_server("acceptAndSave_1", rating_rv, triggerNewImages_rv)
   
-  output[["sessionID"]] <- renderText(sessionToken())
+  output[["sessionID"]] <- renderText({
+      #sessionToken(),
+      session$clientData$url_hostname
+
+    })
   output[["xImgFiles"]] <- renderText({
     #paste0(wwwPath,"\\", imageFiles)
     imageFiles

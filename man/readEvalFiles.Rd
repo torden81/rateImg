@@ -4,7 +4,7 @@
 \alias{readEvalFiles}
 \title{readEvalFiles}
 \usage{
-readEvalFiles()
+readEvalFiles(path = ".")
 }
 \value{
 list with the rated images
