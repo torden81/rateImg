@@ -17,7 +17,7 @@ devtools::install_github("torden81/rateImg")
 ## Setting up images to be rated
 Copy your images to be rated to the folder that is returned by
 ``` r
-system.file("app/www", package = "rateImg")`
+system.file("app/www", package = "rateImg")
 ```
 
 ## Example
