@@ -3,7 +3,6 @@
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
 #' @import shiny
-#' @importFrom shinyjs useShinyjs
 #' @noRd
 app_ui <- function(request) {
 
@@ -12,7 +11,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
-      useShinyjs(),
+      
       
       #actionButton("debug", "DEBUG"),
       h1("rateImg", id="title"),
@@ -45,6 +44,7 @@ app_ui <- function(request) {
 #' 
 #' @import shiny
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
+#' @importFrom shinyjs useShinyjs
 #' @noRd
 golem_add_external_resources <- function(){
   
@@ -57,9 +57,10 @@ golem_add_external_resources <- function(){
     bundle_resources(
       path = app_sys('app/www'),
       app_title = 'evalImg'
-    )
+    ),
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert() 
+    useShinyjs(),
   )
 }
 
