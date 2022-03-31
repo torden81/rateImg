@@ -3,6 +3,9 @@
 \name{scrollIntoView}
 \alias{scrollIntoView}
 \title{scrollIntoView}
+\source{
+https://stackoverflow.com/questions/61757698/how-to-go-to-an-html-anchor-programatically-in-shiny
+}
 \usage{
 scrollIntoView(id)
 }
