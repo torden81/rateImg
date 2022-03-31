@@ -3,13 +3,17 @@
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @import shinyjs
 #' @noRd
 app_ui <- function(request) {
+
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
+      useShinyjs(),
+      
       #actionButton("debug", "DEBUG"),
       h1("rateImg", id="title"),
       fluidRow({

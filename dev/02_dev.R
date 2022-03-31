@@ -26,7 +26,8 @@ golem::add_module( name = "acceptAndSave" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
-golem::add_fct( "analyseRatings" ) 
+golem::add_fct( "analyseRatings" )
+golem::add_fct( "jsWrappers" )
 golem::add_utils( "helpers" )
 
 ## External resources
