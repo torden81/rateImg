@@ -1,5 +1,5 @@
 
-# evalImg
+# rateImg
 
 <!-- badges: start -->
 <!-- badges: end -->
