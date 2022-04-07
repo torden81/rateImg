@@ -13,7 +13,7 @@ app_server <- function( input, output, session ) {
   randomImages <- reactiveVal()
   
   wwwPath <- app_sys("app/www")
-  imageFiles <- list.files(path=wwwPath, pattern="\\.jpg$", full.names = TRUE)
+  imageFiles <- list.files(path=wwwPath, pattern="\\.jpg$|\\.png$", full.names = TRUE)
 
   observeEvent(triggerNewImages_rv(),{
     print("Generate new images")

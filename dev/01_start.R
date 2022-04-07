@@ -24,7 +24,7 @@ golem::fill_desc(
   pkg_description = "This app is an app to evaluate images on a given scale.", # The Description of the package containing the App 
   author_first_name = "Torben", # Your First Name
   author_last_name = "Wittwer", # Your Last Name
-  author_email = "torben_w@gmx.de", # Your Email
+  author_email = "", # Your Email
   repo_url = NULL # The URL of the GitHub Repo (optional) 
 )     
 

@@ -2,8 +2,6 @@
 #'
 #' @return list with the rated images
 #' @export
-#'
-#' @examples
 readEvalFiles <- function(path="."){
 
   evalFilePattern <- "^[[:digit:]]+-[[:digit:]]+_.*\\.rds$"

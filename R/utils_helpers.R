@@ -1,12 +1,3 @@
-#' helpers 
-#'
-#' @description A utils function
-#'
-#' @return The return value, if any, from executing the utility.
-#'
-#' @noRd
-
-
 
 #' get_time_human
 #'
@@ -15,8 +6,10 @@
 #'
 #' @return
 #' @export
+#' @source https://github.com/daattali/shiny-server/tree/master/persistent-data-storage
 #'
 #' @examples
+#' get_time_human()
 get_time_human <- function() {
   format(Sys.time(), "%Y%m%d-%H%M%OS")
 }

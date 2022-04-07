@@ -2,15 +2,19 @@
 % Please edit documentation in R/utils_helpers.R
 \name{get_time_human}
 \alias{get_time_human}
-\title{helpers}
+\title{get_time_human}
+\source{
+https://github.com/daattali/shiny-server/tree/master/persistent-data-storage
+}
 \usage{
 get_time_human()
 }
 \value{
-The return value, if any, from executing the utility.
-
 
 }
 \description{
-A utils function
+get a formatted string of the timestamp (exclude colons as they are invalid
+}
+\examples{
+get_time_human()
 }
